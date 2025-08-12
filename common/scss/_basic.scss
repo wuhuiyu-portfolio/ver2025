@@ -1,0 +1,665 @@
+@charset "UTF-8";
+@import "./utils/_utils.scss";
+
+@mixin basic($language) {
+
+    html, body {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        line-height: 1.6em;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        background-color: #fff;
+        position: relative;
+        opacity: 0;
+        animation: fadeIn 1s .5s forwards;
+        font-size: 1rem;
+
+        @if $language == en {
+            // 英文版的字體
+            font-family: "PT Sans", sans-serif, Arial;
+            letter-spacing: 0px;
+        } @else if $language == jp {
+            // 日語版的字體
+            font-family: "Yu Gothic", sans-serif, Arial;
+            letter-spacing: 0.5px;
+        } @else {
+            // 中文版的字體
+            font-family: "Noto Sans TC", sans-serif;
+            
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    // * ==========================================================================
+    // * 包覆整個網頁的區塊
+    // * ==========================================================================
+
+    #wrapper {
+        width: 100%;
+        height: 100%;
+
+
+        
+    }
+
+    // * ==========================================================================
+    // * 預設標籤樣式
+    // * ==========================================================================
+
+    a {
+        color: $color-primary-1;
+
+        > span {
+            color: inherit;
+        }
+
+        @include min-width(1025px) {
+            &:hover {
+                color: $color-primary-2;
+            }
+
+            &:focus {
+                color: $color-primary-2;
+                outline: none;
+                box-shadow: $focus-border;
+            }
+        }
+    }
+
+    p {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    i {
+        color: inherit;
+        font-style: italic;
+    }
+
+    span {
+        &.smallth {
+            font-size: 60%;
+            vertical-align: super;
+        }
+    }
+
+    sub {
+        font-size: 80%;
+        color: inherit;
+    }
+
+    sup {
+        color: inherit;
+        vertical-align: super;
+        line-height: 0;
+        font-size: 92%;
+    }
+
+    // * ==========================================================================
+    // * 無障礙相關按鈕
+    // * ==========================================================================
+
+    // * 跳到主要內容區塊按鈕
+    .firstGoTo-btn {
+        height: 0px;
+        padding: 0px;
+        opacity: 0;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 5000;
+        font-size: 0rem;
+        color: $color-white;
+
+        @if $language == jp {
+            font-family: 'Yu Gothic', sans-serif, Arial;
+        }
+
+        @include min-width(1025px) {
+            &:focus {
+                height: auto;
+                display: inline-block;
+                padding: 8px 10px;
+                margin-bottom: 5px;
+                font-size: 1rem;
+                line-height: 1em;
+                text-decoration: none;
+                opacity: 1;
+                float: none;
+                border: 1px $color-primary-1 solid;
+                border-radius: 5px;
+                background-color: $color-primary-1;
+                color: $color-white;
+            }
+        }
+    }
+
+    // * 無障礙定位點按鈕
+    .acc {
+        display: none;
+        text-decoration: none;
+
+        @include min-width(1025px) {
+            display: inline;
+            line-height: 1em;
+            z-index: 1;
+        }
+
+        // 無障礙上方選單定位點（U）
+        @at-root #header & {
+            color: $color-white;
+        }
+
+        // 無障礙中方選單定位點（L）
+        @at-root #menu & {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: $color-white;
+            opacity: 0;
+            z-index: -9999;
+
+            @include min-width(1025px) {
+                &:focus {
+                    opacity: 1;
+                    z-index: 1;
+                }
+            }
+        }
+
+        // 無障礙中間主要內容顯示區（C）
+        @at-root #main & {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: $color-black;
+        }
+
+        // 無障礙下方選單連結區（B）
+        @at-root #footer & {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: $color-white;
+        }
+    }
+
+    // * 跳過工具區塊
+    .skiptoolbar {
+        height: 0px;
+        padding: 0px;
+        opacity: 0;
+        position: absolute;
+        z-index: -9999;
+        color: $color-black;
+
+        @include min-width(1025px) {
+            &:focus {
+                width: auto;
+                height: auto;
+                position: static;
+                opacity: 1;
+                border: 1px $color-black solid;
+                border-radius: 5px;
+                background-color: $color-black;
+                color: $color-white;
+                padding: 8px 10px;
+                margin-bottom: 5px;
+                font-size: 1rem;
+                line-height: 1.6em;
+                text-decoration: none;
+                z-index: 0;
+            }
+        }
+    }
+
+    // * 無障礙標章
+    .acc-mark {
+        width: 90px;
+        height: 30px;
+        position: relative;
+        margin-top: 1rem;
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: top;
+
+        > a {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: url('../images/AA.jpg') no-repeat center/contain;
+            color: $color-white;
+
+            @include hidetext;
+        }
+    }
+
+    .gov-mark {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        margin-top: 1rem;
+        display: inline-block;
+        vertical-align: top;
+
+        > a {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background: url('../images/egov.png') no-repeat center/contain;
+            color: $color-white;
+
+            @include hidetext;
+        }
+    }
+
+    // * noscript 說明區塊
+    .noscript-description {
+        padding: 10px;
+        background-color: $color-white;
+
+        p:last-child {
+            margin-bottom: 0px;
+        }
+    }
+
+    // * ==========================================================================
+    // * Lazyload
+    // * ==========================================================================
+
+    img.lazyload {
+        opacity: 0;
+        font-size: 0rem;
+        transition: 0.6s opacity;
+
+        @at-root .no-js & {
+            display: none !important;
+        }
+    }
+
+    img.lazyloading {
+        opacity: 1;
+        font-size: 0rem;
+        background: {
+            color: #f7f7f7;
+            image: url('../images/loader.gif');
+            repeat: no-repeat;
+            position: center;
+        }
+        transition: 0.6s opacity;
+        object-fit: scale-down !important;
+    }
+
+    img.lazyloaded {
+        opacity: 1;
+        font-size: 1rem;
+        background-color: transparent;
+        background-image: none;
+        transition: 0.6s opacity;
+    }
+
+    // * ==========================================================================
+    // * Heading 類型標籤設定
+    // * ==========================================================================
+
+    h1, .h1 {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: bold;
+        line-height: 1.4em;
+        margin-bottom: 20px;
+        color: $color-primary-2;
+        font-family: "Cactus Classical Serif", serif;
+        @if $language == en {
+            letter-spacing: 0px;
+        } @else {
+            letter-spacing: 1px;
+        }
+
+        @include min-width(769px) {
+            font-size: 2rem;
+        }
+    }
+
+    h2, .h2 {
+        display: block;
+        font-size: 1.4rem;
+        line-height: 1.4em;
+        margin-top: 1.5rem;
+        color: $color-primary-2;
+        font-family: "Cactus Classical Serif", serif;
+        @if $language == en {
+            letter-spacing: 0px;
+            margin-bottom: 0.5rem;
+        } @else {
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        @include min-width(769px) {
+            font-size: 1.6rem;
+        }
+    }
+
+    h3, .h3 {
+        display: block;
+        font-size: 1.8rem;
+        font-family: "Cactus Classical Serif", serif;
+        line-height: 1.4em;
+        margin-top: 1.3rem;
+        margin-bottom: 1.3rem;
+        color: $color-primary-2;
+
+        @if $language == en {
+            letter-spacing: 0px;
+        } @else {
+            letter-spacing: 1px;
+        }
+
+        @include min-width(769px) {
+            font-size: 2rem;
+        }
+
+        @include min-width(1025px) {
+            margin-top: 5rem;
+        }
+    }
+
+    h4, .h4 {
+        display: block;
+        font-size: 1.2rem;
+        line-height: 1.4em;
+        font-weight: 600;
+        margin-top: 1rem;
+        margin-bottom: 5px;
+        color: #3f3f3f;
+        font-family: "Cactus Classical Serif", serif;
+        @if $language == en {
+            letter-spacing: 0px;
+        } @else {
+         
+        }
+
+    }
+
+    h5, .h5 {
+        font-size: 1.4rem;
+    }
+
+    // * ==========================================================================
+    // * 右下角的浮動按鈕
+    // * ==========================================================================
+
+    .floatbtn {
+        display: none;
+        position: fixed;
+        bottom: 50px;
+        right: 20px;
+        z-index: 3000;
+
+        @include min-width(480px + 1px) {
+            bottom: 200px;
+            right: 30px;
+        }
+
+        .top-btn {
+            width: 50px;
+            height: 50px;
+            display: block;
+            border-radius: 100%;
+            color: $color-white;
+            background-color: $color-primary-1;
+            line-height: 50px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            opacity: 0.5;
+            transition: opacity 1s;
+
+            @include min-width(480px + 1px) {
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+            }
+
+            @include min-width(1025px) {
+                &:hover, &:focus {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+#cursor {
+  position: fixed;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  will-change: transform;
+  mix-blend-mode: difference;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    #cursor{
+        mix-blend-mode: hard-light;
+    }
+  .cursor__circle {
+    width: 25px;
+    height: 25px;
+    margin-top: -50%;
+    margin-left: -50%;
+    border-radius: 50%;
+    border: solid 1px rgba(223, 255, 193, 0.64);
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+      background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+      border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+      width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+      height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  #cursor.arrow .cursor__circle{
+    width: 50px;
+    height: 50px;
+    background-color: #ff5289;
+    border-color: #ff5289;
+    mix-blend-mode: hard-light;
+  }
+  
+  #cursor.arrow::after{
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://svgshare.com/i/MzQ.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  #cursor.subtle .cursor__circle{
+    opacity: 0.16;
+  }
+  
+  #cursor.overlay .cursor__circle{
+    width: 48px;
+    height: 48px;
+    background-color: rgba(227, 222, 193, 0.08);
+    border-color: transparent;
+  }
+}
+
+
+:root {
+
+
+  --color-bg1: rgb(255, 188, 229);
+  --color-bg2: rgb(149, 225, 255);
+  --color1: 255, 242, 166;
+  --color2: 229, 182, 255;
+  --color3: 100, 220, 255;
+  --color4: 255, 151, 218;
+  --color5: 128, 130, 255;
+  --color-interactive: 140, 100, 255;
+  --circle-size: 80%;
+  --blending: hard-light;
+}
+
+
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+.gradient-bg {
+  width: 40vw;
+  height: 40vw;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(40deg, var(--color-bg1), var(--color-bg2));
+  top: 0;
+  left: 0;
+    @include max-width(550px) {
+        width: 80vw;
+        height: 80vw;            
+    }        
+}
+.gradient-bg .gradients-container {
+  filter: url(#goo) blur(40px);
+  width: 100%;
+  height: 100%;
+}
+.gradient-bg .g1 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color1), 0.8) 0, rgba(var(--color1), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: center center;
+  -webkit-animation: moveVertical 30s ease infinite;
+          animation: moveVertical 30s ease infinite;
+  opacity: 1;
+}
+.gradient-bg .g2 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color2), 0.8) 0, rgba(var(--color2), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+  opacity: 1;
+}
+.gradient-bg .g3 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color3), 0.8) 0, rgba(var(--color3), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2 + 200px);
+  left: calc(50% - var(--circle-size) / 2 - 500px);
+  transform-origin: calc(50% + 400px);
+  -webkit-animation: moveInCircle 40s linear infinite;
+          animation: moveInCircle 40s linear infinite;
+  opacity: 1;
+}
+.gradient-bg .g4 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color4), 0.8) 0, rgba(var(--color4), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: var(--circle-size);
+  height: var(--circle-size);
+  top: calc(50% - var(--circle-size) / 2);
+  left: calc(50% - var(--circle-size) / 2);
+  transform-origin: calc(50% - 200px);
+  -webkit-animation: moveHorizontal 40s ease infinite;
+          animation: moveHorizontal 40s ease infinite;
+  opacity: 0.7;
+}
+.gradient-bg .g5 {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color5), 0.8) 0, rgba(var(--color5), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: calc(var(--circle-size) * 2);
+  height: calc(var(--circle-size) * 2);
+  top: calc(50% - var(--circle-size));
+  left: calc(50% - var(--circle-size));
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  -webkit-animation: moveInCircle 20s ease infinite;
+          animation: moveInCircle 20s ease infinite;
+  opacity: 1;
+}
+.gradient-bg .interactive {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+  mix-blend-mode: var(--blending);
+  width: 100%;
+  height: 100%;
+  top: -50%;
+  left: -50%;
+  opacity: 0.7;
+}
+
+
