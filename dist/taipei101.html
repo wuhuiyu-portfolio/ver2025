@@ -4,7 +4,7 @@
             background-position: center top;
             background-size: cover;
             background-repeat: no-repeat;
-            background-image:url('/common/demo/bd.jpeg') ;
+            background-image:url('../common/demo/bd.jpeg') ;
             position: relative;
             width: 100%;
 
@@ -103,7 +103,7 @@
         composer.addPass(outputPass);
 
         const loader = new GLTFLoader();
-        loader.load("/common/demo/taipei101.glb", function (gltf) {
+        loader.load("../common/demo/taipei101.glb", function (gltf) {
             gltf.scene.traverse(function (child) {
                 const geometry = child.geometry;
                 const material = new THREE.PointsMaterial({
