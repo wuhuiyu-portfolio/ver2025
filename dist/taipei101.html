@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="zh-Hant-TW"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>taipei101</title><style>body{
+            margin: 0;
+            left: 0;
+            background-position: center top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image:url('/common/demo/bd.jpeg') ;
+            position: relative;
+            width: 100%;
+
+        }
+            #canvas-container {
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .dotted {
+                background-position: 0px 4px;
+                background-size: 10px 10px;
+                background-clip: text;
+                letter-spacing: -1px;
+                font-family: monospace;
+                background-image: radial-gradient(
+                    circle at 2px 2px,
+                    var(--animated-color) 1px,
+                    transparent 0
+                );
+                color: transparent;
+                font-size: 9rem;
+                width: 100%;
+                position: absolute;
+                top: 40%;
+                left: 0;
+                transform: translate(0, -50%);
+                text-align: center;
+            }
+
+            .year{
+                font-size: 13rem;
+            }
+
+  
+            @property --animated-color {
+                syntax: "<color>";
+                initial-value: oklch(from lime l c 0deg);
+                inherits: false;
+            }
+
+            @keyframes scrollBg {
+                50% {
+                    --animated-color: oklch(from lime l c 240deg);
+                }
+                100% {
+                    background-position: -32px 4px;
+                }
+            }
+
+            .dotted {
+                animation: scrollBg 10s linear infinite forwards;
+            }</style></head><body><span class="dotted"><span class="year">2025</span><br>Happy New Year !!</span><div id="canvas-container"></div><script async src="https://ga.jspm.io/npm:es-module-shims@1.6.3/dist/es-module-shims.js" crossorigin="anonymous"></script><script type="importmap">{
+            "imports": {
+                "three": "https://unpkg.com/three@0.154.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.154.0/examples/jsm/"
+            }
+        }</script></body><script type="module">import * as THREE from "three";
+    import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+    import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
+    import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
+    import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
+    import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
+
+    let composer, scene, camera, renderer, group;
+    const params = { threshold: 0, strength: 0.1, radius: 0, exposure: 1 };
+    let allGeometry = [];
+
+    function init() {
+        scene = new THREE.Scene();
+        //scene.background = new THREE.Color(0x000000);
+        camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        renderer = new THREE.WebGLRenderer({ alpha: true });
+        const controls = new OrbitControls(camera, renderer.domElement);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById("canvas-container").appendChild(renderer.domElement);
+
+        const sprite = new THREE.TextureLoader().load("https://assets.codepen.io/10590426/disc.png");
+        sprite.colorSpace = THREE.SRGBColorSpace;
+
+        const renderScene = new RenderPass(scene, camera);
+        const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
+        bloomPass.threshold = params.threshold;
+        bloomPass.strength = params.strength;
+        bloomPass.radius = params.radius;
+
+        const outputPass = new OutputPass(THREE.ReinhardToneMapping);
+        group = new THREE.Group();
+
+        composer = new EffectComposer(renderer);
+        composer.addPass(renderScene);
+        composer.addPass(bloomPass);
+        composer.addPass(outputPass);
+
+        const loader = new GLTFLoader();
+        loader.load("/common/demo/taipei101.glb", function (gltf) {
+            gltf.scene.traverse(function (child) {
+                const geometry = child.geometry;
+                const material = new THREE.PointsMaterial({
+                    size: 1,
+                    alphaTest: 0.3,
+                    transparent: true,
+                    blending: THREE.AdditiveBlending,
+                    map: sprite,
+                    vertexColors: true
+                });
+                const taipei101 = new THREE.Points(geometry, material);
+                const wireframe = new THREE.WireframeGeometry(geometry);
+                const line = new THREE.LineSegments(wireframe);
+                line.material.depthTest = false;
+                line.material.opacity = 0.006;
+                line.material.transparent = true;
+
+                group.add(line);
+                group.add(taipei101);
+                scene.add(group);
+                
+                group.rotation.x = Math.PI;
+  
+
+                allGeometry.push(line);
+                allGeometry.push(taipei101);
+            });
+        });
+      
+        camera.position.set(-50 , 50, 0);
+        camera.lookAt(0, 0, 0);
+        controls.update();
+    }
+
+    let elapsed = 0;
+    const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+
+    function animate() {
+        requestAnimationFrame(animate);
+        scene.position.set(0 , -30, 0);
+        scene.rotation.x = -0.3;
+        scene.rotation.y += 0.004;
+        elapsed += 0.02;
+
+        for (const particles of allGeometry) {
+            const positions = particles?.geometry?.attributes?.position?.array;
+            let colors = [];
+            if (positions) {
+                for (let i = 0; i < positions.length; i += 3) {
+                    const waveY = 0.03 * Math.cos(0.1 * (positions[i] / 2) + positions[i + 2] / 12 + elapsed);
+                    positions[i + 1] += waveY;
+
+                    const color = new THREE.Color(0x0378ff);
+                    color.setHSL(
+                        0.65 * clamp(Math.sin(0.1 * positions[i + 2] + elapsed), 0.6, 1),
+                        1,
+                        0.4
+                    );
+                    colors.push(color.r, color.g, color.b);
+                }
+                particles.geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+                particles.geometry.attributes.position.needsUpdate = true;
+                particles.geometry.attributes.color.needsUpdate = true;
+            }
+        }
+        composer.render();
+    }
+
+    init();
+    animate();</script></html>

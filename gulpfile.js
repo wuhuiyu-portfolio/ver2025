@@ -57,7 +57,7 @@ gulp.task('extend', function() {
                 .pipe(replace('./page-1.html', '../index.html'))
                 .pipe(replace('"./', '"'))
                 .pipe(htmlmin(PROCESS.htmlmin))
-                .pipe(gulp.dest('./dist/ch/')),
+                .pipe(gulp.dest('./dist')),
             gulp.src('./ch/assets/page-1.html')
                 .pipe(fileinclude(PROCESS.fileinclude))
                 .pipe(replace('./page-1.html', 'index.html'))
@@ -67,20 +67,9 @@ gulp.task('extend', function() {
                 .pipe(replace('href="common', 'href="./common'))
                 .pipe(rename({basename: 'index'}))
                 .pipe(htmlmin(PROCESS.htmlmin))
-                .pipe(gulp.dest('./dist')),
-            gulp.src('./en/assets/*.html')
-                .pipe(fileinclude(PROCESS.fileinclude))
-                .pipe(replace('"./', '"'))
-                .pipe(replace('“', '"'))
-                .pipe(replace('”', '"'))
-                .pipe(replace('’', "'"))
-                .pipe(htmlmin(PROCESS.htmlmin))
-                .pipe(gulp.dest('./dist/en')),
-            gulp.src('./jp/assets/*.html')
-                .pipe(fileinclude(PROCESS.fileinclude))
-                .pipe(replace('"./', '"'))
-                .pipe(htmlmin(PROCESS.htmlmin))
-                .pipe(gulp.dest('./dist/jp'))
+                .pipe(gulp.dest('./dist'))
+                
+
 });
 
 // * ==========================================================================
