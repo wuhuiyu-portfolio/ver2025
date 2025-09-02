@@ -1,0 +1,138 @@
+/*--------UL巢狀頁籤---------*/
+body{/*font-size:10pt; font-family:細明體;*/}
+
+/*----------頁籤-----------*/
+.ecNetUlTabs 
+{
+	/*position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 1000px;*/
+		
+}
+.ecNetUlTabs li 
+{
+	/*float:left;
+	list-style:none;
+	padding:0;
+	margin:0;*/
+}
+
+.ecNetUlTabs a.ecNetUlTab 
+{
+	/*padding:0 10px;
+	display:block;
+	height:47px;
+	line-height:25px;
+	vertical-align:middle;
+	width:91px;
+	color:#705938;
+	text-align:center;
+	text-decoration:none;
+	border-right:solid 1px #333;*/
+}
+
+.ecNetUlTabs a.ecNetUlTabSelected 
+{
+	/*padding: 0 10px;
+	display: block;
+	height: 47px;
+	line-height: 25px;
+	vertical-align: middle;
+	width: 91px;
+	color: #ffffff;
+	background-color: #333;
+	text-align: center;
+	text-decoration: none;
+	position: absolute;*/
+}
+
+.ecNetUlTabs a.ecNetUlTabSelected:visited {
+	/*color:#fff;*/
+}
+.ecNetUlTabs a.tab:hover {
+	/*color:#333;*/
+}
+.ecNetUlTabs a:active {
+	/*color:#705938;*/
+}
+
+/*----------頁籤內容-----------*/
+.ecNetUlTabContent
+{
+	/*position不要設成absolute, 由套件自動處理*/
+	/*float:left;
+	display:block;
+	list-style:none;
+	top:38px;
+	width:600px;
+	margin:0 0 0 20px;
+	padding:0;*/
+}
+
+.ecNetUlTabContent li
+{
+	/*list-style:none;
+	margin-bottom:5px;
+	line-height:16px;*/
+}
+
+
+.newsType 
+{
+	float:left;
+	width:70px;
+	color:#900;
+	text-align:left;
+}
+
+.newsDate 
+{
+	float:left;
+	width:150px;
+	color:#cc3321;
+	text-align:left;
+}
+
+.newsTitle 
+{
+	float:left;
+	width:410px;
+	color:#cc3321;
+	text-align:left;
+}
+.newsTitle a
+{
+	 text-decoration:none;
+	text-align:left;
+	color:#3e3e3e;
+	}
+.newsTitle a:visited {
+	text-align:left;
+	color:#3e3e3e;
+}
+.newsTitle a:hover {
+	text-align:left;
+	color:#3e3e3e;
+}
+.newsTitle a:active {
+	text-align:left;
+	color:#3e3e3e;
+}
+
+.contentBox
+{
+	width:600px; 
+	height:200px; 
+	border:dashed 1px #333;
+	margin:10px 0 0 0;
+}
+
+.box
+{
+	/*clear:both;
+	width:600px;
+	height:200px;
+	border:solid 1px #333;*/
+}

@@ -1,0 +1,262 @@
+@charset "UTF-8";
+@media screen and (max-width: 1680px) {
+
+}
+
+@media screen and (max-width: 1620px) {
+
+}
+
+@media screen and (max-width: 1540px) {
+
+}
+
+@media screen and (max-width: 1440px) {
+
+
+}
+
+@media screen and (max-width: 1366px) {
+
+}
+
+@media screen and (max-width: 1280px) {
+
+
+
+}
+
+@media screen and (max-width: 1200px) {
+
+}
+
+@media screen and (max-width: 1180px) {
+
+}
+
+
+@media screen and (max-width: 1024px) {
+
+a.Sign-in {
+    margin-top: 13px;
+}
+
+
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+      z-index: 1001;
+    background: #fff;
+    }
+
+
+.navbar .name {
+    margin-top: 60px;
+    margin-right: -130px;
+}
+
+ .navbar .right-menu-trigger {
+    display: block;
+    margin: 13px 15px 0 0;
+    width: 35px;
+}
+
+ .navbar .right-menu-trigger:before,
+ .navbar .right-menu-trigger:after {
+  content: '';
+  display: block;
+  height: 4px;
+  transition: all 200ms ease-in-out;
+}
+ .navbar .right-menu-trigger:before {
+  margin-bottom: 16px;
+}
+
+a.Sign-in {
+    margin-top: 10px;
+    margin-right: 16px;
+}
+
+
+ .navbar .right-menu-trigger.colse:before {
+  box-shadow: 0 0 0 #fff;
+  transform: translateY(10px) rotate(45deg);
+}
+ .navbar .right-menu-trigger.colse:after{
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+
+
+
+    .navbar .right-menu-trigger {
+      float: right;
+    }
+
+    .left-menu, .right-menu {
+      position: fixed;
+      top: 0px;
+      bottom: 0;
+      left: -270px;
+      width: 270px;
+      background: #fff;
+      overflow-x: hidden;
+      overflow-y: auto;
+      transition: -webkit-transform 300ms;
+      transition: transform 300ms;
+      transition: transform 300ms, -webkit-transform 300ms;
+      z-index: 999;
+    }
+
+
+
+    .right-menu {
+      left: auto;
+      right: -270px;
+    }
+
+    .push-270-to-right {
+      -webkit-transform: translate3d(270px, 0, 0);
+              transform: translate3d(270px, 0, 0);
+    }
+
+    .push-270-to-left {
+      -webkit-transform: translate3d(-270px, 0, 0);
+              transform: translate3d(-270px, 0, 0);
+    }
+
+    .navbar-clearfix {
+      display: block;
+      height: 50px;
+    }
+
+
+     /*選單*/
+
+     .right-menu ul.main-menu{
+
+
+     }
+
+     .right-menu ul.main-menu li{
+                                                                                                                                                                                                                                                                  
+     }
+
+     .right-menu ul.main-menu li a{
+
+     }
+
+     .right-menu ul.main-menu li span{
+
+     }
+
+
+
+
+     .main-logo {
+        position: fixed;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #0070a7;
+        line-height: 50px;
+        margin-left: 45px;
+        margin-top: 0px;
+        display: inline-block;
+    }
+
+     .main-logo:before{
+        content: "";
+        position: absolute;
+        width: 30px;
+        top: 10px;
+        height: 30px;
+        background: url(../../images/logo_9-01.png) no-repeat center/100%;
+        margin-left: -35px;
+    }
+
+
+
+
+
+}
+
+
+
+@media screen and (max-width: 960px) {
+   
+}
+
+@media screen and (max-width: 840px) {
+   
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+
+}
+
+
+@media screen and (max-width: 700px) {
+
+}
+
+
+
+@media screen and (max-width: 640px) {
+
+}
+
+
+@media screen and (max-width: 560px) {
+
+
+}
+
+
+@media screen and (max-width: 480px) {
+     .right-menu ul.main-menu{
+       margin-top: 80px;
+     }
+
+
+  .right-menu ul.main-menu li span {
+      padding: 20px;
+  }
+
+    .right-menu .share-btn {
+        padding-bottom: 10px;
+    }
+
+
+  .right-menu .share-btn a {
+      width: 45px;
+      height: 45px;
+  }
+
+  footer p {
+      line-height: 1.2rem;
+      font-size: 0.8rem;
+      margin: 0;
+  }
+
+
+
+
+}
+
+
+
+
+@media screen and (max-width: 320px) { 
+
+}

@@ -1,0 +1,828 @@
+@charset "UTF-8";
+@media screen and (max-width: 1680px) {
+
+}
+
+@media screen and (max-width: 1620px) {
+
+}
+
+@media screen and (max-width: 1540px) {
+
+}
+
+@media screen and (max-width: 1440px) {
+    /*獎項*/
+    .prize-box img {
+        width: 65%;
+    }
+
+    .prize-box .smallword {
+        font-size: 1rem;
+        line-height: 1.4rem;
+    }
+
+    .prize-page-content .left {
+        float: left;
+        padding: 10px 20px;
+    }
+
+    .prize-page-content .right {
+        float: left;
+        padding: 10px 20px;
+    }
+
+}
+
+@media screen and (max-width: 1366px) {
+
+
+
+    .prize-page-content {
+        width: 100%;
+        height: auto;
+    }
+
+    .Day-lucky-content{
+        width: 70vw;
+
+    }
+
+    .my-record-content {
+        width: 70vw;
+    }
+
+    .nine-box-game-content {
+        height: 65vh;
+        width: 60vw;
+    }
+
+    .question-title span {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.8rem;
+        color: #2f3437;
+        letter-spacing: 0.3px;
+    }
+
+    .inline-radio label {
+        font-size: 1.15rem;
+    }
+
+
+}
+
+@media screen and (max-width: 1280px) {
+    .lightbox-panel {
+        margin-left: -35vw;
+        width: 70vw;
+    }
+
+
+    /*答題後頁面*/
+    .Congratulation-Box .tenday-Congratulation-Information {
+        margin: 5px 0;
+    }
+
+    .Congratulation-Box .nine-box-game-content {
+        height: 20vw;
+        width: 30vw;
+        margin: auto;
+    }
+
+    .Congratulation-Box .nine-box-game-content .nine-box span {
+        line-height: calc((20vw)/ 3);
+    }
+
+    .Congratulation-Box .btn {
+        width: 30vw;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+     .process {
+        width: 100%;
+    }
+
+    .process .process-item {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        display: block;
+        float: none!important;
+        margin-right: 0px;
+        margin-bottom: 30px;
+        padding: 30px;
+    }
+
+.process .process-item>span {
+    display: inline-block;
+    padding-left: 0!important;
+    margin: auto;
+}    
+
+.process .process-item>span:before {
+    position: static;
+    display: block;
+    margin: 0px auto 10px;
+}
+
+.process .process-item:first-child::after,
+.process .process-item:nth-child(2):after,
+.process .process-item:nth-child(3):after,
+.process .process-item:nth-child(4):after,
+.process .process-item:nth-child(5):after,
+    .process .process-item:nth-child(6):after {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    bottom: -25px;
+    top: auto;
+    left: auto;
+    right: calc((100% - 30px)/2);
+
+
+}
+
+@media screen and (max-width: 1180px) {
+
+}
+
+
+
+
+@media screen and (max-width: 1366px) and (max-height: 800px){
+    .Day-lucky-page {
+        height: auto;
+    }
+    .sign-in-page{
+        height: auto;
+    }
+
+}
+
+@media screen and (max-width: 1024px) and (min-height: 1366px){
+
+    /*答題後頁面*/
+
+    .Congratulation-Box .nine-box-game-content {
+        height: 50vw;
+        width: 50vw;
+    }
+
+    .Congratulation-Box .nine-box-game-content .nine-box span {
+        line-height: calc((50vw)/ 3);
+    }
+
+    .Congratulation-Box .btn {
+    width: 60vw;
+    margin: 40px auto;
+    }
+
+    .check-in .check-in-box .check-in-circle span.date {
+        font-size: 1.2rem;
+    }
+
+      .Congratulation-Box .nine-box-game-content .nine-box.answer-right{
+        background: #f7561d url(../../images/logo-right.svg) no-repeat center/30%;
+    }
+
+      .Congratulation-Box .nine-box-game-content .nine-box.wrong{
+        background: #595757 url(../../images/logo-wrong.svg) no-repeat center/30%;
+    }
+
+
+
+
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    .Day-lucky-page {
+        height: auto;
+    }
+    .sign-in-page{
+        height: auto;
+    }
+
+    .wrap {
+        padding: 60px 10%;
+    }
+
+
+    .lightbox-panel {
+        position: fixed;
+        top: 100px;
+        margin-left: -35vw;
+        overflow: scroll;
+        height: 80vh;
+        width: 70vw;
+        padding: 20px 20px;
+        z-index: 900;
+    }
+
+    .lightbox-left {
+        width: 100%;
+    }
+
+    .lightbox-right {
+        width: 100%;
+        float: right;
+        padding: 10px 0 0 0px;
+    }
+
+    .lightbox-title span {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+    }
+
+    .lightbox-title span:before {
+        width: 2rem;
+        height: 2rem;
+        margin-top: -.5rem;
+        margin-left: -2.6rem;
+    }
+
+    .close-panel {
+        right: 0px;
+        top: 0px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .question-list {
+        margin-top: 0px;
+    }
+
+    .question-title span {
+        font-size: 0.9rem;
+    }
+
+    .inline-radio label {
+        font-size: 0.9rem;
+    }
+
+    .btn-box a.find-answer {
+        margin: 15px 10px 10px 10px;
+        width: calc( 50% - 20px);
+    }
+    .btn-box a.question-ok{
+        margin: 15px 10px 10px 10px;
+        width: calc( 50% - 20px);
+    }
+
+
+    .inline-radio input:hover + label {
+    line-height: inherit;
+    height: 42px;
+    }
+
+    .inline-radio input:checked + label {
+    line-height: inherit;
+    height: 42px;
+    }
+
+    .inline-radio label {
+    line-height: inherit;
+    height: 42px;
+    }
+
+
+    /*每日簽到*/
+
+
+    /*簽到*/
+
+
+    .check-in .check-in-box {
+        width: calc(60vw);
+        margin: 15px auto;
+    }
+
+    .check-in .check-in-box .check-in-circle {
+        width: 13vw;
+        height: 13vw;
+        margin: 5px;
+    }
+
+    .check-in .check-in-box .check-in-circle span {
+        font-size: 1.5rem;
+        line-height: 9vw;
+    }
+
+    .check-in .check-in-box .check-in-circle span.date {
+        margin-top: 4vw;
+    }
+
+
+
+    /*登入*/
+
+    .sign-in-page-content {
+        width: 80vw;
+    }
+
+
+
+
+}
+
+
+
+@media screen and (max-width: 960px) {
+   
+}
+
+@media screen and (max-width: 840px) {
+   
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .wrap {
+        padding: 60px 5%;
+    }
+
+
+    /*登入*/
+    .sign-in-page-content {
+        width: 400px;
+        height: 90vh;
+        height: auto;
+    }
+    .sign-in-page-content .left {
+        width: 100%;
+        float: none;
+    }
+    .sign-in-page-content .right {
+        width: 100%;
+        float: none;
+    }
+
+    /*九宮格*/
+
+    .nine-box-game-content {
+        height: 70vh;
+        width: 80vw;
+        margin: auto;
+    }
+
+
+    .nine-box-game-content .nine-box.answer-right{
+        background: #f7561d url(../../images/logo-right.svg) no-repeat center/50%;
+    }
+
+    .nine-box-game-content .nine-box.wrong{
+        background: #595757 url(../../images/logo-wrong.svg) no-repeat center/50%;
+    }
+
+
+    /*答題後頁面*/
+
+    .Congratulation-Box .nine-box-game-content {
+        height: 50vw;
+        width: 50vw;
+    }
+
+    .Congratulation-Box .nine-box-game-content .nine-box span {
+        line-height: calc((50vw)/ 3);
+    }
+
+    .Congratulation-Box .btn {
+    width: 60vw;
+    margin: 40px auto;
+    }
+
+    .check-in .check-in-box .check-in-circle span.date {
+    }
+
+      .Congratulation-Box .nine-box-game-content .nine-box.answer-right{
+        background: #f7561d url(../../images/logo-right.svg) no-repeat center/50%;
+    }
+
+      .Congratulation-Box .nine-box-game-content .nine-box.wrong{
+        background: #595757 url(../../images/logo-wrong.svg) no-repeat center/50%;
+    }
+
+
+
+    /*獎項*/
+
+    .prize-page {
+        height: auto;
+    }
+
+    .prize-box {
+        padding: 15px;
+    }
+
+    .prize-page-content {
+        width: 80%;
+        height: auto;
+    }
+    .prize-page-content .left {
+        width: 100%;
+        float: none;
+    }
+
+    .prize-page-content .right {
+        width: 100%;
+        float: none;
+    }
+    .prize-box img {
+        width: 85%;
+    }
+
+    .Day-lucky-content{
+        width: 90vw;
+    }
+    .my-record-content {
+        width: 90vw;
+    }
+
+    /*簽到*/
+
+    .check-in .check-in-box {
+        width: calc(60vw + 30px);
+        margin: 15px auto;
+    }
+
+    .check-in .check-in-box .check-in-circle {
+        width: 14vw;
+        height: 14vw;
+        margin: 5px;
+    }
+
+
+    /*神秘客*/
+    .mascot-pic {
+        width: 55vw;
+    }
+
+    .mascot01_box a.close, .mascot02_box a.close {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    .mascot03_box a.close, .mascot04_box a.close {
+        width: 5vw;
+        height: 5vw;
+    }
+
+    .mascot a.close:before, .mascot a.close:after {
+        position: absolute;
+        left: 2.2vw;
+        content: ' ';
+        height: 4vw;
+        top: 0.5vw;
+        width: 3px;
+        background-color: #333;
+    }
+
+    .Day-lucky-list .process-title {
+        line-height: 1.5rem;
+    }
+
+
+    .end-description{
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+    }
+
+
+
+}
+
+
+@media screen and (max-width: 700px) {
+
+}
+
+
+
+@media screen and (max-width: 640px) {
+
+}
+
+
+@media screen and (max-width: 560px) {
+
+ 
+    /*先把thead給隱藏*/
+    .table-rwd thead{display: none; }
+    /*產生適當的內距*/
+    .table-rwd.display th,
+    .table-rwd.display td{
+        padding: .5em;
+    }
+    /*原本是橫式的讓tr td加上block馬上會變成直式*/
+    .table-rwd tr,
+    .table-rwd td{display: block;}
+
+    /*為元素做準備*/
+    .table-rwd tr{ position: relative;margin-bottom: 1em;
+                box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.15);}
+    /**/
+
+    .my-record-list .table-rwd td:nth-child(1),
+    .my-record-list .table-rwd td:nth-child(2),
+    .my-record-list .table-rwd td:nth-child(3)
+   {
+        width: 100%;
+        padding-left: 50%;
+        border-bottom: none;
+    }
+
+    .Day-lucky-list  .table-rwd td:nth-child(1),
+    .Day-lucky-list .table-rwd td:nth-child(2){
+        width: 100%;
+        padding-left: 80px;
+        border-bottom: none;
+    }
+
+    /*產生為元素*/
+    .table-rwd td:nth-child(1):before,
+    .table-rwd td:nth-child(2):before,
+    .table-rwd td:nth-child(3):before{
+        position: absolute;
+        left: .5em;
+        font-weight: bold;
+        padding-right:15px;
+    }
+
+
+    /*在為元素裡面寫上文字*/
+   .Day-lucky-list .table-rwd td:nth-child(1):before{content: '日期';}
+   .Day-lucky-list .table-rwd td:nth-child(2):before{content: '名稱';}
+
+    .Day-lucky-list .table-rwd td:nth-child(3){
+        text-align: left;
+        font-size: 70%;
+    }
+
+    /*在為元素裡面寫上文字*/
+   .my-record-list .table-rwd td:nth-child(1):before{content: '日期';}
+   .my-record-list .table-rwd td:nth-child(2):before{content: '賓果次數';}
+   .my-record-list .table-rwd td:nth-child(3):before{content: '分享次數';}
+    
+
+
+}
+
+
+@media screen and (max-width: 480px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+
+
+    .wrap {
+        padding: 20% 3%;
+    }
+    .nine-box-game-content {
+        height: 100vw;
+        width: 80vw;
+    }
+
+    .nine-box-game-content .nine-box.answer-right {
+        background: #f7561d url(../../images/logo-right.svg) no-repeat center/50%;
+    }
+
+    .nine-box-game-content .nine-box.wrong {
+        background: #595757 url(../../images/logo-wrong.svg) no-repeat center/50%;
+    }
+
+    .nine-box-game-content .nine-box span {
+        font-size: 3rem;
+        line-height: calc((100vw)/ 3);
+    }
+
+
+
+
+    .lightbox-panel {
+        position: fixed;
+        top: 80px;
+        margin-left: -45vw;
+        overflow: scroll;
+        height: 75vh;
+        width: 90vw;
+        padding: 15px 15px;
+        z-index: 900;
+    }
+
+    .lightbox-left {
+        width: 100%;
+    }
+
+    .lightbox-right {
+        width: 100%;
+        float: right;
+        padding: 10px 0 0 0px;
+    }
+
+    .lightbox-title span {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+    }
+
+    .lightbox-title span:before {
+        width: 2rem;
+        height: 2rem;
+        margin-top: -.5rem;
+        margin-left: -2.6rem;
+    }
+
+    .close-panel {
+        right: 0px;
+        top: 0px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .question-list {
+        margin-top: 0px;
+    }
+
+    .question-title span {
+        font-size: 0.9rem;
+    }
+
+    .inline-radio label {
+        font-size: 0.9rem;
+    }
+
+    .btn-box a.find-answer {
+        margin: 15px 10px 10px 10px;
+        width: calc( 50% - 20px);
+    }
+    .btn-box a.question-ok{
+        margin: 15px 10px 10px 10px;
+        width: calc( 50% - 20px);
+    }
+
+
+    .inline-radio input:hover + label {
+    line-height: inherit;
+    height: 42px;
+    }
+
+    .inline-radio input:checked + label {
+    line-height: inherit;
+    height: 42px;
+    }
+
+    .inline-radio label {
+    line-height: inherit;
+    height: 42px;
+    }
+
+    /*表單頁-每日*/
+
+
+    .Day-lucky-content ,.my-record-content{
+    height: auto;
+    width: 90vw;
+    }
+
+    .Day-lucky-list ,.my-record-list{
+        padding: 20px 20px;
+    }
+
+
+ 
+
+
+    /*每日簽到*/
+
+    .title-pic img {
+        height: auto;
+        width: 100%;
+    }
+
+    .check-txt {
+        line-height: 1.3rem;
+        font-size: 0.9rem;
+        margin: 5px 0;
+    }
+
+
+    .check-in .check-in-box {
+        width: calc(65vw + 30px);
+        margin: 15px auto;
+    }
+
+    .check-in .check-in-box .check-in-circle {
+        width: 20.5vw;
+        height: 20.5vw;
+        margin: 5px;
+    }
+    .check-in .check-in-box .check-in-circle span {
+        font-size: 0.9rem;
+        line-height: 12vw;
+    }
+
+    .check-in .check-in-box .check-in-circle span.date {
+        margin-top: 8vw;
+    }
+
+
+    /*登入*/
+
+    .sign-in-page-content {
+        margin: 0px auto;
+        width: 100%;
+        height: auto;
+    }
+
+    .sign-in-page-content .left {
+        float: none;
+    }
+    .sign-in-page-content .right {
+        float: none;
+    }    
+
+    /*獎項*/
+
+    .prize-page-content {
+        width: 100%;
+        height: auto;
+    }
+
+    .prize-box .title {
+        font-size: 1.5rem;
+    }
+    .prize-box span.blue {
+        font-size: 1.3rem;
+    }
+
+
+
+    /*答題後頁面*/
+
+    .Congratulation-Box .nine-box-game-content {
+        height: 60vw;
+        width: 60vw;
+    }
+
+    .Congratulation-Box .nine-box-game-content .nine-box span {
+        line-height: calc((60vw)/ 3);
+    }
+
+    .Congratulation-Box .btn {
+        width: 70vw;
+        margin: 40px auto;
+    }
+
+    .Congratulation-Box .btn a {
+        padding: 15px 5px;
+    }
+
+    .check-in .check-in-box .check-in-circle span.date {
+        font-size: 1.2rem;
+    }
+
+    .Congratulation-Box .tenday-Congratulation-Information {
+        font-size: 2rem;
+    }
+
+    .Congratulation-Box .tenday-Congratulation-Information img {
+        height: 4rem;
+        width: 4rem;
+    }
+
+   /*活動說明*/
+    .process .process-item {
+        padding: 20px;
+    }
+
+    .description-page ul.description-list li {
+        font-size: 1.3rem;
+    }
+
+    .description-page ul.description-list li span.title {
+        font-size: 1.3rem;
+    }
+
+
+}
+
+
+
+
+@media screen and (max-width: 320px) { 
+
+
+}

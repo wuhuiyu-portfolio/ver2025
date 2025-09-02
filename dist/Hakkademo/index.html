@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>客家九宮格</title>
+  
+    <script src="common/js/jquery-3.1.1.min.js"></script>
+
+
+
+    <link type="text/css" rel="stylesheet" href="common/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="common/css/common.css">    
+    <link type="text/css" rel="stylesheet" href="common/css/common_rwd.css"> 
+    <link type="text/css" rel="stylesheet" href="common/css/page.css">    
+    <link type="text/css" rel="stylesheet" href="common/css/page_rwd.css"> 
+    <link type="text/css" rel="stylesheet" href="common/css/index.css">
+    <link type="text/css" rel="stylesheet" href="common/css/index_rwd.css">    
+    <link type="text/css" rel="stylesheet" href="common/css/font-awesome.min.css">      
+
+    <!--圖片尺寸調整套件-->
+    <script  src="common/js/plugins/imgLiquid.js"></script>
+    <script src="common/js/index.js"></script>   
+    <script src="common/js/common.js"></script>  
+
+    <!--視差滾動特效-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+        <script>    
+        var scene = document.getElementById('scene');
+        var parallaxInstance = new Parallax(scene);
+        </script>
+</head>
+<body >
+
+<!--選單/右上logo-->
+<header>
+      <a href="#" class="left-top-logo"> <span class="main-logo">夏日玩客大挑戰</span></a>
+      <nav class="navbar">
+        <div class="right-menu-trigger"></div>    
+        <a href="#" title="登入" class="Sign-in">登入</a>
+        <div class="name">王小名，你好</div>
+      </nav>
+      <aside class="right-menu">
+           <ul class="main-menu">
+               <li><a href="#"><span>活動說明</span></a></li>
+               <li><a href="#"><span>我要闖關</span></a></li>
+               <li><a href="#"><span>活動獎項</span></a></li>
+               <li><a href="#"><span>每日幸運主</span></a></li>
+               <li><a href="#"><span>我的紀錄</span></a></li>
+           </ul>
+           <div class="share-btn">
+               <span>分享給好友</span>
+               <div class="share-btn-box">
+                  <a href="javascript: void(window.open('http://line.me/R/msg/text/?'.concat(encodeURIComponent(document.title + '%97')).concat(encodeURIComponent(location.href)) ));" class="share-btn-line">Line</a>
+                  <a href="javascript: void(window.open('http://www.facebook.com/share.php?u='+encodeURIComponent(location.href)+'&t='+encodeURIComponent(document.title)));" class="share-btn-fb">Facebook</a>
+               </div>
+           </div>
+      </aside>
+</header>
+<!--選單/右上logo 結束-->
+
+
+
+    <main>
+      <section>
+         <div class="black-bd"></div>
+          <div class="index-page">
+            <!--背景泡泡-->
+            <div id="bubbles">
+              <div class="bubble x1"></div>
+              <div class="bubble x2"></div>
+              <div class="bubble x3"></div>
+              <div class="bubble x4"></div>
+              <div class="bubble x5"></div>
+              <div class="bubble x6"></div>
+              <div class="bubble x7"></div>
+              <div class="bubble x8"></div>
+              <div class="bubble x9"></div>
+              <div class="bubble x10"></div>
+            </div>
+            <!--背景泡泡-結束-->
+
+              <div class="content">
+                <div class="wrap">
+                      <!--視差主視覺-->
+                      <div id="scene" class="main-visual">
+                         <div class="control2" data-depth="0">
+                            <div class="title01" ></div>
+                          </div>
+                         <div class="control" data-depth="0.2">
+                            <div class="top-pic01"></div>
+                          </div>
+                         <div class="control" data-depth="0.5">
+                            <div class="top-pic02"></div>
+                          </div>
+                          <div class="control" data-depth="0.5">
+                            <div class="top-pic03"></div>
+                          </div>
+                          <div class="control" data-depth="0.1">
+                            <div class="top-pic04"></div>
+                          </div>
+                          <div class="control" data-depth="0.1">
+                            <div class="top-pic05"></div>
+                          </div>
+                          <div class="control" data-depth="0.2">
+                            <div class="top-pic06"></div>
+                          </div>
+                          <div class="control" data-depth="0.6">
+                            <div class="top-pic07"></div>
+                          </div>
+                          <div class="control" data-depth="0.2">
+                            <div class="top-pic08"></div>
+                          </div>
+                          <div class="control" data-depth="0.4">
+                            <div class="top-pic09"></div>
+                          </div>
+                          <div class="control" data-depth="0.3">
+                            <div class="top-pic10"></div>
+                          </div>
+                          <div class="control" data-depth="0.4">
+                            <div class="top-pic11"></div>
+                          </div>
+                      </div>
+                      <!--視差主視覺-結束-->
+                </div>
+              </div>
+
+                <!--只有首頁有的下方選單-->
+                <ul class="index-main-menu">
+                   <li><a href="#">活動說明</a></li>
+                   <li><a href="#">我要闖關</a></li>
+                   <li><a href="#">活動獎項</a></li>
+                   <li><a href="#">每日幸運主</a></li>
+                   <li><a href="#">我的紀錄</a></li>
+                </ul>
+
+        </div>
+      </section>
+    </main>
+
+
+
+<!--Footer區-->
+
+<!--Footer-->
+<footer>
+    <p>© 2018 客家委員會All Right Reserved. </p>
+    <p>建議瀏覽器：Chrome 44+、Firefox 39+、IE 11+、Safari、Edge</p>
+</footer>
+
+
+</body>
+
+    <!--首頁視差滾動-->
+
+
+
+</html>

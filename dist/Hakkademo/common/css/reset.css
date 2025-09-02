@@ -1,0 +1,261 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font-weight:normal;
+font-family: Arial,Helvetica,"Microsoft JhengHei",Sans-Serif;    
+vertical-align: baseline;
+text-decoration: none;
+   
+}
+*{box-sizing:border-box;font-family: Arial,Helvetica,"Microsoft JhengHei",Sans-Serif;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+
+/*自訂*/
+
+h1,h2,h3,h4,h5{
+    line-height: initial;
+    display: block;
+}
+h1{
+    font-size: 2.4em;
+    font-weight: bold;
+}
+h2{
+    font-size: 2.2rem;
+    color: #cc3321;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+h3{
+    font-size: 1.6rem;
+    color: #cc3321;
+    font-weight: bold;
+}
+h4{
+    font-size: 1.5rem;
+    color: #cc3321;
+    font-weight: bold;
+}
+h5{
+    font-size: 1.4rem;
+}
+p{
+    margin: 1em 0;
+    line-height: 180%;
+}
+body {
+
+}
+
+
+a {
+    text-decoration:none;
+    color: inherit;
+}
+
+
+
+/*上稿區塊的文字設定*/
+
+.textWrapper h2,
+.textWrapper h3,
+.textWrapper h4,
+.textWrapper h5 {
+    margin: 1.5rem 0;
+}
+.textArea h2{
+    color: #cc3321;
+}
+.textArea h3{
+    color: #e95514;
+}
+.textArea h4{
+    color: #e95514;
+}
+.textArea h5{
+    color: #7c9914;
+}
+.textArea h6{
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+.textArea a{
+    color: #90b50b;
+    word-break: break-word;
+}
+.textArea a:hover,
+.textArea a:focus{
+    color: #7c9914;
+}
+.textArea strong{
+    font-weight: bold;
+}
+.textArea ul{
+    /*list-style: disc;*/
+    padding-left: 30px;
+}
+.textArea ol {
+    list-style-type: decimal;
+    padding-left: 30px;
+}
+.textArea li {
+    line-height: 1.8em;
+}    
+.textArea li span {
+    font-weight: bold;
+    color: #7c9914;
+}
+.textArea li,
+.textArea p {
+    font-size: 1.2rem;
+    margin: 1em 0;
+    letter-spacing: 1px;
+}
+.textArea .leftBox,
+.textArea .rightBox {
+    width: 50%;
+}
+.textArea img{
+    width: 100%;
+}
+
+.textArea select{
+    min-width: 150px;
+    height: 30px;
+    border: none;
+}
+
+@media screen and (max-width: 1440px){
+.textArea img{
+    width: 100%;
+}
+}
+.textArea img.inlineImg{
+    width: auto;
+}
+.textArea table{
+    width: 100%;
+}
+
+.textArea table tr th{
+    background-color: #e95514;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    line-height: 1.6rem;
+    font-size: 1.1rem;
+}
+
+
+.textArea table tbody th,
+.textArea table tbody td{
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    line-height: 1.6rem;
+    font-size: 1.1rem;
+    vertical-align: middle;
+    border: 1px solid #d7d4ce;
+}
+.textArea table.field-2 tbody th,
+.textArea table.field-2 tbody td{
+    width: 50%;
+}
+.textArea table.field-3 tbody th,
+.textArea table.field-3 tbody td{
+    width: 33.3%;
+}
+.textArea table.field-5 tbody th,
+.textArea table.field-5 tbody td{
+    width: 20%;
+}
+.textArea table tbody>tr{
+    background-color: #fff;
+}
+.textArea table tbody>tr:nth-child(odd){
+   background-color: #ededed;
+}
+/*
+.textArea table tbody>tr:first-child{
+    background-color: #e95514;
+    color: #fff;
+}
+*/
+.textArea table tbody>tr th{
+    font-weight: bold;
+}
+@media screen and (max-width: 768px){
+    .textArea img:not(.setform img){
+        width: 100% !important;
+        height: auto !important;
+    }
+    .textArea img.inlineImg{
+        width: auto !important;
+    }
+}
+@media screen and (max-width: 480px){
+    .textArea table tbody th,
+    .textArea table tbody td{
+        font-size: 1rem;
+    }
+
+}
+@media screen and (max-width: 420px){
+    h1{font-size: 2rem;}
+    h2{font-size: 2rem;}
+    h4{font-size: 1.3rem;}
+    h5{font-size: 1.2rem;}
+    p{font-size: 1rem;}
+    footer p{font-size: 0.9rem;}
+    .textArea li,
+    .textArea p {font-size: 1rem;}
+    .textArea table tbody th,
+    .textArea table tbody td{
+        font-size: 0.9rem;
+    }
+    .textArea table.field-5 tbody th,
+    .textArea table.field-5 tbody td{
+        padding: 4px;
+    }
+}
