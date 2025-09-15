@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="en"><head><title>chinese_map</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1,maximum-scale=1"><style>body{
+					margin: 0;
+					left: 0;
+					position: relative;
+					width: 100%;
+					overflow: hidden;
+				}
+
+
+              .ink{
+                  position: fixed;
+                  z-index: 100;
+                  top: 0;
+                  left: 0;
+				  bottom: 0;
+                  width: 100vw;
+                  height: 100vh;
+                  mix-blend-mode: screen;
+                  filter: brightness(2);
+                  animation:  fade-out 6.5s ;
+                  animation-iteration-count: 1;
+                  animation-fill-mode :forwards;
+              }
+			  .ink img{
+				width: 100vw;
+				height: 100vh;
+			  }
+			@keyframes fade-out {
+				0% {
+					opacity: 1;
+					height: 100vh;
+				}  
+				40% {
+					opacity: 1;
+				}  
+				99% {
+					height: 100vh;
+					visibility:visible;
+				}
+				100% {
+					opacity: 0;
+					height: 0;
+					visibility: hidden;
+				}  
+				}
+				#canvas {
+					position: fixed;  /* 或 absolute，看你需求 */
+					top: 0;
+					left: 0;
+					width: 100vw;
+					height: 100vh;
+					pointer-events: none; /* 重要：不會攔截滑鼠事件 */
+					z-index: 9999;        /* 可視需求調整層級 */
+				}</style></head><body><script type="importmap">{
+				"imports": {
+					"three": "https://unpkg.com/three@0.154.0/build/three.module.js",
+					"three/addons/": "https://unpkg.com/three@0.154.0/examples/jsm/"
+				}
+		}</script><script type="module">import * as THREE from 'three';
+		import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+		let camera, scene, renderer;
+		let mouseX = 0, mouseY = 0;
+
+		init();
+
+		function init() {
+			scene = new THREE.Scene();
+			scene.background = new THREE.Color(0xf0f0f0);
+			scene.fog = new THREE.FogExp2(0xf0f0f0, 0.002);
+
+			// 指定 canvas
+			const canvas = document.getElementById("myCanvas");
+			renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+			renderer.setPixelRatio(window.devicePixelRatio);
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.setAnimationLoop(animate);
+
+			camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 2000);
+			camera.position.set(0, 200, -400);
+
+			// 光源
+			const dirLight1 = new THREE.DirectionalLight(0xffffff, 3);
+			dirLight1.position.set(1, 1, 1);
+			scene.add(dirLight1);
+
+			const dirLight2 = new THREE.DirectionalLight(0x002288, 3);
+			dirLight2.position.set(-1, -1, -1);
+			scene.add(dirLight2);
+
+			const ambientLight = new THREE.AmbientLight(0x555555);
+			scene.add(ambientLight);
+
+			// resize
+			window.addEventListener('resize', onWindowResize);
+
+			// 滑鼠移動事件
+			document.addEventListener('mousemove', onMouseMove);
+
+			// 載入 GLTF 模型
+			const loader = new GLTFLoader();
+			loader.load(
+				'../common/demo/test0915.glb', // <-- 你的 GLTF 模型路徑
+				function (gltf) {
+					const model = gltf.scene;
+					model.scale.set(6, 6, 6); // 可依需要調整大小
+					model.position.set(-200, 100, -500);
+					scene.add(model);
+				},
+				function (xhr) { console.log( (xhr.loaded / xhr.total * 100) + '% loaded'); },
+				function (error) { console.error('An error happened', error); }
+			);
+		}
+
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+		}
+
+		function onMouseMove(event) {
+			mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+			mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+		}
+
+		function animate() {
+			const speed = 0.1; // 平移速度
+			camera.position.x += mouseX * speed;
+			camera.position.z += mouseY * speed;
+
+			// 微俯視效果
+			camera.lookAt(new THREE.Vector3(camera.position.x - 120, camera.position.y -120 , camera.position.z + 1));
+
+			render();
+		}
+
+		function render() {
+			renderer.render(scene, camera);
+		}
+
+
+
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext('2d', { alpha: true });
+
+let mouseMoved = false;
+
+const pointer = {
+    x: window.innerWidth * 0.5,
+    y: window.innerHeight * 0.5
+};
+
+const params = {
+    pointsNumber: 40,
+    widthFactor: 0.3,
+    spring: 0.4,
+    friction: 0.5
+};
+
+// 尾巴陣列
+const trail = Array.from({length: params.pointsNumber}, () => ({
+    x: pointer.x, y: pointer.y, dx: 0, dy: 0
+}));
+
+// 更新游標位置
+function updateMousePosition(x, y){
+    pointer.x = x;
+    pointer.y = y;
+}
+
+// 滑鼠 / 觸控事件
+window.addEventListener("mousemove", e => { 
+    mouseMoved = true; 
+    updateMousePosition(e.clientX, e.clientY); 
+});
+window.addEventListener("touchmove", e => {
+    mouseMoved = true; 
+    updateMousePosition(e.touches[0].clientX, e.touches[0].clientY);
+});
+
+// 設定畫布尺寸
+function setupCanvas(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+setupCanvas();
+window.addEventListener("resize", setupCanvas);
+
+// 主迴圈
+function update(){
+    if(mouseMoved){ // 只有滑鼠移動後才畫
+        // 清空畫布，背景透明
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        // 更新尾巴點
+        trail.forEach((p,i)=>{
+            const prev = i===0 ? pointer : trail[i-1];
+            const spring = i===0 ? 0.4*params.spring : params.spring;
+            p.dx += (prev.x - p.x)*spring;
+            p.dy += (prev.y - p.y)*spring;
+            p.dx *= params.friction;
+            p.dy *= params.friction;
+            p.x += p.dx;
+            p.y += p.dy;
+        });
+
+        // 畫墨水尾巴
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.moveTo(trail[0].x, trail[0].y);
+
+        for(let i=1;i<trail.length-1;i++){
+            const xc = 0.5*(trail[i].x+trail[i+1].x);
+            const yc = 0.5*(trail[i].y+trail[i+1].y);
+            ctx.quadraticCurveTo(trail[i].x, trail[i].y, xc, yc);
+
+            ctx.lineWidth = params.widthFactor*(params.pointsNumber-i);
+            const alpha = 1 - i/trail.length;
+            ctx.strokeStyle = `rgba(0,0,0,${alpha*0.5})`;
+            ctx.stroke();
+        }
+
+        ctx.lineTo(trail[trail.length-1].x, trail[trail.length-1].y);
+        ctx.stroke();
+    }
+
+    requestAnimationFrame(update);
+}
+
+requestAnimationFrame(update);</script><div id="canvas-container"><canvas id="myCanvas"></canvas></div><div class="iframe-wrapper ink"><img src="../common/demo/black3.gif"></div><canvas id="canvas"></canvas></body></html>
